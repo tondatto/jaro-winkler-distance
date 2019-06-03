@@ -116,12 +116,15 @@ public class JaroWinklerDistance
     }
     
     public static void Main(String[] args){
+        var jw = new JaroWinklerDistance();
+        
         // Obtém o texto informado depois de converter para maíusculo e remover os acentos
-        var texto1 = RemoveDiacritics(args[0].ToUpper());
-        var texto2 = RemoveDiacritics(args[1].ToUpper());
+        var texto1 = jw.RemoveDiacritics(args[0].ToUpper());
+        var texto2 = jw.RemoveDiacritics(args[1].ToUpper());
+
 
         // Calcula a distância de Jaro-Winkler
-        double retorno = Proximity(texto1, texto2);
+        double retorno = jw.Proximity(texto1, texto2);
 
         Console.WriteLine("Proximidade: " + retorno);
     }
